@@ -1,4 +1,4 @@
-Turkin Mikhail 27.04.2020 - 05.06.2020
+Turkin Mikhail 27.04.2020-05.06.2020
 
 # Учебный шаблон проекта Portfolio
 
