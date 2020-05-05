@@ -17,14 +17,13 @@ html(lang="en")
                 .logo ТМ  
               .header__menu
                 +nav('menu', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
-
               .header__right
                 .hero__socials
                 - var icons = ['insta', 'vk', 'github']
                 ul.socials
                   each item, index in icons
                     li.socials__item(class=`${index === 1 ? 'active' : ''}`)
-                      a(href="").socials__link
+                      a(href="#").socials__link(target="_blank")
                         +icon(`${item}`, 'socials__icon')
             
               .hero__content
@@ -78,7 +77,7 @@ html(lang="en")
             h2.title__values Чем я могу быть полезен вам
           .values__content
             .values__right
-              +image("content/backpack1200.png", "backpack1200__img")
+              +image("content/backpack.png", "backpack__img")
             .values__left
               .values__text 
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования 
@@ -99,8 +98,8 @@ html(lang="en")
                         li.skills-row__item
                           .skill
                             svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
-                              circle(r="80" cx="100" cy="100" fill="transparent" stroke="#e9e9e9" stroke-width="10px").skill__circle.skill__circle--position--under
-                              circle(r="80" cx="100" cy="100" fill="transparent" stroke="url(#gradient)" stroke-width="20px" stroke-dasharray="502.4" stroke-dashoffset="276.8").skill__circle.skill__circle--position--above
+                              circle(r="70" cx="100" cy="100" fill="transparent" stroke="#e9e9e9" stroke-width="10px").skill__circle.skill__circle--position--under
+                              circle(r="70" cx="100" cy="100" fill="transparent" stroke="url(#gradient)" stroke-width="20px" stroke-dasharray="439.6" stroke-dashoffset="276.8").skill__circle.skill__circle--position--above
                               linear-gradient()
                             .skill__title #{skill}
                           svg(style='width:0; height:0; position: absolute;' aria-hidden='true').skill__img
@@ -113,8 +112,36 @@ html(lang="en")
             .works__title Мои Работы
             .works__content
               .works__left
-                +image("content/preview.png", "preview-img")
-                +image("content/two.png", "two-img")
+                .slider
+                  .slider-content
+                    .slider__item.slider__item-active
+                      +image("content/preview1.jpg", "preview-img")
+                    .slider__item
+                      +image("content/preview2.jpg", "preview-img")
+                    .slider__item
+                      +image("content/preview3.jpg", "preview-img")
+                    .slider__item
+                      +image("content/preview4.jpg", "preview-img")
+                  .slider__contol
+                    button.slider__btn
+                      +icon("arrow", "arrow__up-img")
+                    button.slider__btn
+                      +icon("arrow", "arrow__down-img")
+                  .slider__right
+                    .slider__right-item.slider__item-active
+                      +image("content/preview1.jpg", "small__preview-img")
+                    .slider__right-item
+                      +image("content/preview2.jpg", "small__preview-img")
+                    .slider__right-item
+                      +image("content/preview3.jpg", "small__preview-img")
+                    .slider__right-item
+                      +image("content/preview4.jpg", "small__preview-img")
+                  ul.slider__right-number
+                    li.slider__number.slider__number-active 1
+                    li.slider__number 2
+                    li.slider__number 3
+                    li.slider__number 4
+                      
               .works__right
                 .works__tags
                   +tag('tags', ["HTML", "CSS", "javascript"])
@@ -127,19 +154,22 @@ html(lang="en")
                 .works__right-site
                   +icon("link", "link-img") 
                   a.watch__site Посмотреть сайт
-            .works__triangles      
-              svg(viewBox="0 0 1000 100" preserveAspectRatio="none").work__item.work
-                polygon(points="0,0 1000,0 1000,100")
-              svg(viewBox="0 0 1000 100" preserveAspectRatio="none").work__item.work
-                polygon(points="0,0 0,100 1000,0")    
+        .works__triangles      
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").work__item.work
+            polygon(points="0,0 1000,0 1000,100")
+          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").work__item.work
+            polygon(points="0,0 0,100 1000,0")    
       section.about-me
         section.talking
           .container.talking__container
             .talking-header
               .talking__title Что обо мне говорят
-              .talking__bottom
-                +image("content/left-arrow-button.png", "left-arrow-button-img")
-                +image("content/right-arrow-button.png", "righr-arrow-button-img")
+              .talking__buttom
+                button.talking__btn
+                  +icon("arrow", "arrow__left-img talking__btn-color")
+                button.talking__btn
+                  +icon("arrow", "arrow__right-img talking__btn-color" )
+                Kimage("content/right-arrow-button.png", "righr-arrow-button-img")
             .talking__content
               .talking__content-left
                 +icon("quote", "quote-img") 
@@ -171,7 +201,7 @@ html(lang="en")
                     .talking__content-autor__rank
                       p Преподаватель
         section.link__withme
-          .container
+          .container.link__container
             .link__title Связаться со мной
             .link__forma
               .link__data

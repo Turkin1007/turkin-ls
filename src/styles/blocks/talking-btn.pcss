@@ -1,0 +1,42 @@
+.talking__buttom {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  justify-content: space-between;
+}
+.arrow__left-img {
+  width: 10px;
+  height: 10px;
+  transform: rotate(-180deg);
+}
+
+.arrow__right-img {
+  width: 10px;
+  height: 10px;
+}
+
+.talking__btn {
+  background-color: transparent;
+  position: relative;
+}
+
+.talking__btn:hover {
+  color: #5500f2;
+  .talking__btn-color {
+    fill: #5500f2;
+  }
+}
+
+.talking__btn:after {
+  content: "";
+  width: 60px;
+  height: 60px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: translate(-35% , -10%);
+}
