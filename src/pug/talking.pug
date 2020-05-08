@@ -1,0 +1,39 @@
+.container.talking__container
+  .talking-header
+    .talking__title Что обо мне говорят
+    .talking__buttom
+      button.talking__btn
+        +icon("arrow", "arrow__left-img talking__btn-color")
+      button.talking__btn
+        +icon("arrow", "arrow__right-img talking__btn-color" )
+      Kimage("content/right-arrow-button.png", "righr-arrow-button-img")
+  .talking__content
+    .talking__content-left
+      +icon("quote", "quote-img") 
+      .talking__content-text
+        p Этот парень проходил обучение
+        p веб-разработке не где-то, а в LoftSchool!
+        p 4,5 месяца только самых тяжелых
+        p испытаний и бессонных ночей!
+      .talking__content-autor
+        .talking__content-autor__avatar
+          +image("content/dmitriy.png", "dmitriy-img")
+        .talking__content-autor__desc
+          .talking__content-autor__name
+            p Ковальчук Дмитрий
+          .talking__content-autor__rank
+            p Основатель LoftSchool
+    .talking__content-right
+      +icon("quote", "quote-img")
+      .talking__content-text
+        p Этот сайт выдержит любые испытания.
+        p Только пожалуйста, не загружайте сайт на
+        p слишком старых браузерах
+      .talking__content-autor
+        .talking__content-autor__avatar
+          +image("content/vladimir.png", "vladimir-img")
+        .talking__content-autor__desc
+          .talking__content-autor__name
+            p Владимир Сабанцев
+          .talking__content-autor__rank
+            p Преподаватель

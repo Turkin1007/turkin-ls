@@ -1,0 +1,41 @@
+.container
+  .works__container
+    .works__title Мои Работы
+    .works__content
+      .works__left
+        .slider
+          -
+            var sliderItems = [
+              "content/preview1.jpg",
+              "content/preview2.jpg",
+              "content/preview3.jpg",
+              "content/preview4.jpg"
+            ]
+          .slider-content
+              each slide, index in sliderItems
+                .slider__item(class= index === 0 ? 'slider__item-active':'')
+                  +image(slide, "preview-img")
+          .slider__right
+            each slide, index in sliderItems
+              .slider__right-item(class= index === 0 ? 'slider__item-active':'')
+                +image(slide, "small__preview-img")
+          ul.slider__right-number
+            each value, index in sliderItems
+              li.slider__number(class= index === 0 ? 'slider__number-active':'')= index + 1
+          .slider__contol
+            button.slider__btn
+              +icon("arrow", "arrow__up-img")
+            button.slider__btn
+              +icon("arrow", "arrow__down-img")
+      .works__right
+        .works__tags
+          +tag('tags', ["HTML", "CSS", "javascript"])
+        .works__right-title Сайт школы <br> образования
+        .works__right-content
+          p Этот парень проходил обучение
+          p веб-разработке не где-то, а в LoftSchool! 2
+          p месяца только самых тяжелых
+          p испытаний и бессонных ночей!
+        .works__right-site
+          +icon("link", "link-img") 
+          a.watch__site Посмотреть сайт
