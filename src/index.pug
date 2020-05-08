@@ -7,25 +7,27 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Portfolio | main page
+    script(src="./main.js")
   body
     .wrapper
       section.welcome-section
-        include ./pug/parallax-mountain.pug
-          // HERO 
-          section.hero.fullscreen-section
-            include ./pug/hero.pug 
-          // ABOUT 
-          section.about-section
-            include ./pug/about.pug
-      // VALUES    
-      section.values-section
+        section.parallax__mountain
+          include ./pug/parallax-mountain.pug
+            //HERO
+            section.hero
+              include ./pug/hero.pug 
+            //ABOUT 
+            section.about-section
+              include ./pug/about.pug
         section.triangles.values-section__triangles
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle
             polygon(points="0,0 0,100 1000,100")
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle
-            polygon(points="1000,0 1000,100 0,100")          
+            polygon(points="0,100 1000,100 1000,0")          
+      //VALUES
+      section.values-section
         include ./pug/values.pug
-      // WORKS
+      //WORKS
       section.works
         include ./pug/works.pug
         .works__triangles      
@@ -33,7 +35,7 @@ html(lang="en")
             polygon(points="0,0 1000,0 1000,100")
           svg(viewBox="0 0 1000 100" preserveAspectRatio="none").work__item.work
             polygon(points="0,0 0,100 1000,0")  
-      // ABOUT_ME        
+      //ABOUT_ME
       section.about-me
         // TALKING
         section.talking
@@ -41,7 +43,7 @@ html(lang="en")
         //  LINK WITH ME
         section.link__withme
           include ./pug/link-withme.pug 
-      // FOOTER       
+      // FOOTER
       section.footer
         include ./pug/footer.pug
             

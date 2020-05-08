@@ -3,12 +3,12 @@ const layers = parallax.children;
 
 function moveLayersDependsOnScroll(wScroll) {
 
-  Array.from(layers).forEach(layer => {
+    Array.from(layers).forEach(layer => {
 
     const divider = layer.dataset.speed;
     const strafe = wScroll * divider / 10;
 
-    layer.style.transform = `transleteY(-${strafe}%)`;
+    layer.style.transform = `translateY(-${strafe}%)`;
 
   })
 }
