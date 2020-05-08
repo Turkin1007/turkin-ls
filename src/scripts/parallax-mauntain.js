@@ -1,19 +1,19 @@
-const parallax =  document.querySelector('.parallax-mountain');
+const parallax =  document.querySelector(".parallax");
 const layers = parallax.children;
 
 function moveLayersDependsOnScroll(wScroll) {
 
-  Array.from(layers).forEach(layers => {
+  Array.from(layers).forEach(layer => {
 
-    const divider = layers.dataset.speed;
+    const divider = layer.dataset.speed;
     const strafe = wScroll * divider / 10;
 
-    layers.style.transform = `transleteY(-${strafe}%)`;
+    layer.style.transform = `transleteY(-${strafe}%)`;
 
   })
 }
 
 window.addEventListener("scroll", e => {
-  const wScroll =window.pageYOffset;
+  const wScroll = window.pageYOffset;
   moveLayersDependsOnScroll(wScroll);
 });
