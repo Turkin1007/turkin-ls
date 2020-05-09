@@ -10,25 +10,5 @@
         p LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, 
         p как тут всё классно и красиво!
       .values-left__content
-        ul.user-skills
-        - 
-          var skills = [
-            ['Front-end', ['HTML5', 'CSS3', 'javascript', 'jquery и Vue.js']],
-            ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
-          ]
-        each item in skills 
-          li.user-skills__item.skills-row 
-            .skills-row__title #{item[0]}
-            ul.skills-row__list
-              each skill in item[1]
-                li.skills-row__item
-                  .skill
-                    svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
-                      circle(r="70" cx="100" cy="100" fill="transparent" stroke="#e9e9e9" stroke-width="10px").skill__circle.skill__circle--position--under
-                      circle(r="70" cx="100" cy="100" fill="transparent" stroke="url(#gradient)" stroke-width="20px" stroke-dasharray="439.6" stroke-dashoffset="276.8").skill__circle.skill__circle--position--above
-                      linear-gradient()
-                    .skill__title #{skill}
-                  svg(style='width:0; height:0; position: absolute;' aria-hidden='true').skill__img
-                    lineargradient#gradient(x1='0%' y1='0%' x2='100%' y2='0')
-                      stop(offset='0%' stop-color='#4a00ed')
-                      stop(offset='100%' stop-color='#9300e8')
+        #skills-component
+include ./skills.pug        
