@@ -15,18 +15,15 @@ script(type="text/x-template")#slider-display
     .works-slider__pics-content
       .works-slider__fullpic-container
         img(:src="currentWork.photo").works-slider__fullpic
-        btns(
-          @slide="$emit('slide', $event)"
-        )
+        .works-slider__buttons
+          button(@click="$emit('slide', 'next')" :disabled="indexEnd").works-slider__btn.works-slider__btn_next
+          button(@click="$emit('slide', 'prev')" :disabled="indexStart").works-slider__btn.works-slider__btn_prev
         thumbs(
           :works="reversedWorks"
           :currentWork="currentWork"
         )
 
-script(type="text/x-template")#slider-btns
-  .works-slider__buttons
-    a(@click.prevent="$emit('slide', 'next')").works-slider__btn.works-slider__btn_next
-    a(@click.prevent="$emit('slide', 'prev')").works-slider__btn.works-slider__btn_prev
+  
 
 script(type="text/x-template")#slider-thumbs
   ul.works-slider__thumbs

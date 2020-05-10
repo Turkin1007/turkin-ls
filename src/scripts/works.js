@@ -1,8 +1,6 @@
 import Vue from "vue";
 
-const btns = {
-  template: "#slider-btns",
-};
+
 const thumbs = {
   template: "#slider-thumbs",
   props: ["works", "currentWork"],
@@ -10,9 +8,15 @@ const thumbs = {
 
 const display = {
   template: "#slider-display",
-  components: { thumbs, btns },
+  components: { thumbs },
   props: ["currentWork", "works", "currentIndex"],
   computed: {
+    indexStart() {
+      return this.currentIndex == 0;
+    },
+    indexEnd() {
+      return this.currentIndex == this.works.length -1;
+    },
     reversedWorks() {
       const works = [...this.works];
       return works.reverse();
@@ -51,17 +55,7 @@ new Vue({
       return this.works[this.currentIndex];
     },
   },
-  watch: {
-    currentIndex(value) {
-      this.makeInfiniteLoopForIndex(value);
-    },
-  },
   methods: {
-    makeInfiniteLoopForIndex(value) {
-      const worksAmountFromZero = this.works.length - 1;
-      if (value > worksAmountFromZero) this.currentIndex = 0;
-      if (value < 0) this.currentIndex = worksAmountFromZero;
-    },
     handleSlide(direction) {
       switch (direction) {
         case "next":

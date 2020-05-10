@@ -16,18 +16,20 @@ const info = {
 
 const left = {
   template: "#talking-left",
-  props: ["currentSpeaker"],
+  props: ["currentSpeaker" , "currentIndex"],
 };
 
 const right = {
   template: "#talking-right",
-  props: ["currentSpeaker"],
+  props: ["nextSpeaker" , "currentIndex"],
 };
 
 const display = {
   template: "#talking-display",
-  components: { right, left },
+  components: { left , right },
+  props: ["currentSpeaker" , "nextSpeaker" , "currentIndex"],
 };
+
 
 
 new Vue({
@@ -37,12 +39,50 @@ new Vue({
   data() {
     return {
       speakers: [],
-      currentSpeaker: {}
+      currentIndex: 0,
     }
   },
+  computed: {
+    currentSpeaker() {
+      return this.speakers[this.currentIndex];
+    },
+    nextSpeaker() {
+      return this.speakers[this.currentIndex + 1];
+    },
+  },
+  watch: {
+    currentIndex(value) {
+      this.makeInfiniteLoopForIndex(value);
+    } 
+  },
+  methods: {
+    makeInfiniteLoopForIndex(value) {
+      const spikersAmountFromZero = this.speakers.length -1;
+      if (value > spikersAmountFromZero) this.currentIndex = 0;
+      if (value < 0) this.currentIndex = spikersAmountFromZero;
+
+    },
+    handleSlide(direction) {
+      switch(direction) {
+        case "next" :
+          this.currentIndex = this.currentIndex +2;
+          break;
+        case "prev" :
+          this.currentIndex = this.currentIndex -2;
+          break; 
+      }
+    },
+    makeArrWithRequireImages(array) {
+      return array.map((item) => {
+        const requirePic = require(`../images/content/${item.photo}`);
+        item.photo = requirePic;
+        return item;
+      });
+    },
+  },
+
   created() {
-    const  data = require("../data/talking.json");
-    this.speakers = data;
-    this.currentSpeaker = data[1];
-  }
+    const data = require("../data/talking.json");
+    this.speakers = this.makeArrWithRequireImages(data);
+  },
 });
