@@ -1,20 +1,56 @@
 .footer-right {
   width: 70%;
+  padding-left: 40px;
+
+  @include phones {
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 40px;
+  }
 }
 
 .footer__content {
   display: flex;
-  justify-content: space-between;
   width: 90%;
+  padding-left: 30px;
+  justify-content: space-between;
+
+  @include laptop {
+    flex-direction: column;
+  }
+
 }
 
 .footer-nav {
   color: white;
   margin-bottom: 40px;
+
+  @include phones {
+    height: 20%;
+  }
 }
 
 .footer__content-autor {
   color: white;
   font-style: italic;
   margin-top: 30px;
+}
+
+.footer__content-left {
+  width: 35%;
+
+  @include laptop {
+    padding-bottom: 80px;
+    width: 90%;
+  }
+
+}
+
+.footer__content-right {
+  width: 45%;
+
+  @include laptop {
+    width: 90%;
+  }
+
 }

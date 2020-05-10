@@ -1,0 +1,39 @@
+script(type="text/x-template")#taking-container
+  .talking-slider
+    info
+    display
+  
+  
+script(type="text/x-template")#talking-info
+  .talking__info
+    titles
+    btns
+
+script(type="text/x-template")#talking-titles
+  .talking__titles 
+    p Что обо мне говорят
+script(type="text/x-template")#talking-btns
+  .talking__buttom
+    button.talking__btn
+      svg.arrow.arrow__left-img.talking__btn-color
+    button.talking__btn
+      svg.arrow.arrow__right-img.talking__btn-color 
+script(type="text/x-template")#talking-display
+  .talking__display
+    left(
+      :currentSpeaker="currentSpeaker"
+    )
+    right(
+      :currentSpeaker="currentSpeaker + 1"
+    )
+
+
+script(type="text/x-template")#talking-left
+  .talking__content-left
+    svg.quote.quote-img
+    pre {{currentSpeaker}}
+    
+script(type="text/x-template")#talking-right
+  .talking__content-right
+    svg.quote.quote-img 
+    pre {{currentSpeaker}}
