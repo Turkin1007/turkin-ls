@@ -1,8 +1,22 @@
 .talking__container {
-display: flex;
-flex-direction: column;
-justify-content: center;
-width: 84%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 84%;
+  padding-left: 140px;
+
+  @include desktop {
+    padding-left: 60px;
+  }
+
+  @include laptop {
+    width: 94%;
+  }
+
+  @include phones {
+    padding: 0;
+    margin:0 auto;
+  }
 }
 
 .talking {
@@ -10,19 +24,53 @@ width: 84%;
   padding-top: 230px;
 }
 
-.talking__title {
+.talking__info {
+  display: flex;
+  padding-bottom: 100px;
+
+  @include phones {
+   flex-direction: column;
+  }
+}
+
+.talking__titles {
   margin-bottom: 60px;
   font-size: 36px;
   font-weight: 700;
   margin-right: 140px;
+
+  @include laptop {
+    margin-right: 60px;
+  }
+
+  @include phones {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+    padding-bottom: 30px;
+  }
 }
 
-.talking__content {
+.talking__display {
   display: flex;
-  width: 60%;
+  width: 68%;
   justify-content: space-between;
   margin-left: 100px;
   padding-bottom: 200px;
+
+  @include desktop {
+    width: 85%;
+  }
+
+  @include laptop {
+    width: 100%;
+    margin-left: 40px;
+  }
+
+  @include phones {
+    flex-direction: column;
+    margin: 0;
+  }
 }
 
 .talking__content-autor {
@@ -41,6 +89,11 @@ width: 84%;
 
 .talking__content-left {
   position: relative;
+  width: 42%;
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .talking__content-right {
@@ -48,6 +101,11 @@ width: 84%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 42%;
+
+  @include phones {
+    display: none;
+  }
 }
 
 .talking__content-autor__desc {
@@ -65,19 +123,16 @@ width: 84%;
   opacity: .4;
 }
 
-.talking__bottom {
-  display: flex;
-  margin-bottom: 60px;
-}
-
-.left-arrow-button-img {
-  margin-right: 20px;
-}
-
 .quote-img {
   fill: #e7eae8;
   width: 70px;
   height: 60px;
   position: absolute;
   left: -100px;
+
+  @include laptop {
+    width: 35px;
+    height: 30px;
+    left: -38px;
+  }
 }

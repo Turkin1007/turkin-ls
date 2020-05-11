@@ -1,12 +1,29 @@
 .values-section {
   margin-bottom: 160px;
-  z-index: 100;
+
+  @include laptop {
+    margin-bottom: 60px;
+  }
+}
+
+.values__container {
+  width: 90%;
 }
 
 .values__title {
   padding-top: 150px; 
   text-align: center;
-  margin-bottom: 60px;
+  padding-bottom: 60px;
+
+  @include laptop {
+    width: 40%;
+    margin: 0 auto;
+  }
+  
+  @include phones {
+    width: 100%;
+    text-align: left;
+  }
 }
 
 .title__values {
@@ -17,6 +34,10 @@
 .values__content {
   display: flex;
   position: relative;
+
+  @include laptop {
+    flex-direction: column-reverse;
+  }
 }
 
 

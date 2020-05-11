@@ -10,11 +10,19 @@
     padding-right: 40px;
   }
 
+  @include laptop {
+    padding: 0;
+  }
 }
 
 .user-data__name {
   font-size: 72px;
   font-weight: bolder;
+  
+  @include phones {
+    font-size: 36px;
+    text-align: center;
+  }
 }
 
 .user-data {
@@ -23,7 +31,10 @@
   @include desktop {
     display: flex;
   }
-  
+
+  @include laptop {
+    flex-direction: column;
+  }
 }
 
 .user-info {

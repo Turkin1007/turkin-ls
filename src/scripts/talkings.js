@@ -5,31 +5,24 @@ const titles = {
   template: "#talking-titles",
 };
 
-const btns = {
-  template: "#talking-btns",
-};
-
 const info = {
   template: "#talking-info",
-  components: { titles, btns },
-};
-
-const left = {
-  template: "#talking-left",
-  props: ["currentSpeaker" , "currentIndex"],
-};
-
-const right = {
-  template: "#talking-right",
-  props: ["nextSpeaker" , "currentIndex"],
+  components: { titles },
+  props: ["currentIndex"],
+  computed: {
+    indexStart() {
+      return this.currentIndex == 0;
+    },
+    indexEnd() {
+      return this.currentIndex == 6;
+    },
+  }  
 };
 
 const display = {
   template: "#talking-display",
-  components: { left , right },
   props: ["currentSpeaker" , "nextSpeaker" , "currentIndex"],
 };
-
 
 
 new Vue({
@@ -50,18 +43,18 @@ new Vue({
       return this.speakers[this.currentIndex + 1];
     },
   },
-  watch: {
-    currentIndex(value) {
-      this.makeInfiniteLoopForIndex(value);
-    } 
-  },
+  // watch: {
+  //   currentIndex(value) {
+  //     this.makeInfiniteLoopForIndex(value);
+  //   } 
+  // },
   methods: {
-    makeInfiniteLoopForIndex(value) {
-      const spikersAmountFromZero = this.speakers.length -1;
-      if (value > spikersAmountFromZero) this.currentIndex = 0;
-      if (value < 0) this.currentIndex = spikersAmountFromZero;
+    // makeInfiniteLoopForIndex(value) {
+    //   const spikersAmountFromZero = this.speakers.length -1;
+    //   if (value > spikersAmountFromZero) this.currentIndex = 0;
+    //   if (value < 0) this.currentIndex = spikersAmountFromZero;
 
-    },
+    // },
     handleSlide(direction) {
       switch(direction) {
         case "next" :
