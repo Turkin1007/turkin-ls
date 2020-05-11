@@ -4,3 +4,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 import "./scripts/skills";
+import "./scripts/parallax-mauntain";
+import "./scripts/works";
+import "./scripts/talkings";

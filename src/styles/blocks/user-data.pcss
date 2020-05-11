@@ -3,17 +3,38 @@
   margin-top: 20px;
   color: #464d62;
   text-align: center;
-  opacity: 0.4;
+  opacity: 0.7;
   font-weight: 600;
+
+  @include desktop {
+    padding-right: 40px;
+  }
+
+  @include laptop {
+    padding: 0;
+  }
 }
 
 .user-data__name {
   font-size: 72px;
   font-weight: bolder;
+  
+  @include phones {
+    font-size: 36px;
+    text-align: center;
+  }
 }
 
 .user-data {
   position: relative;
+
+  @include desktop {
+    display: flex;
+  }
+
+  @include laptop {
+    flex-direction: column;
+  }
 }
 
 .user-info {
@@ -25,7 +46,7 @@
 .user-info__data-set {
   padding-right: 60px;
   font-weight: 700;
-  opacity: .3;
+  opacity: .4;
 }
 
 .user-info__set {

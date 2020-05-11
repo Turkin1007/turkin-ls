@@ -4,4 +4,25 @@
   color: white;
   margin-top: 10px;
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+
+  @include desktop {
+    width: 30%;
+  }
+
+  @include phones {
+    width: 100%;
+  }
+}
+
+.user-footer__desc {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include desktop {
+    width: 40%;
+  }
+
 }

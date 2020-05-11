@@ -1,11 +1,24 @@
 .footer-left {
   width: 30%;
   display: flex;
-  flex-direction: column;
   padding-left: 150px;
+  justify-content: space-evenly;
+
+  @include desktop {
+    flex-direction: column;
+    padding-left: 60px;
+    justify-content: flex-start;
+    width: 25%;
+  }
+
+  @include phones {
+    width: 100%;
+  }
 }
 
 .user-footer__copy {
   font-size: 48px;
-  font-weight: 600
+  font-weight: 600;
+  white-space: nowrap;
+  padding-right: 40px;
 }

@@ -1,37 +1,38 @@
 .skill {
-  display: flex;
   position: relative;
-  width: 200px;
-  height: 200px;
-    
-  &__title {
-    font-size: 18px;
-    font-weight: 700;
-    opacity: 0.5;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%)
-  }
-  
-  circle:last-child {
-    transform: rotate(180deg);
-    transform-origin: 50% 50%;
+  width: 145px;
+  height: 145px;
+
+  @include tablets {
+    width: 135px;
+    height: 135px;
   }
 }
 
-svg {
-  width: 100%;
-  height: auto;
+.skill__circle {
+  fill: transparent;
+  &_under {
+    stroke: #eaeaea;
+    stroke-width: 5px;
+  }
+  &_above {
+    stroke-width: 12px;
+    stroke-dasharray: 251;
+    stroke-dashoffset: 100;
+  }
 }
 
-.skill__shape {
-  transform: rotate(180deg);
-}
+.skill__circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 18px;
+  color: rgba($text-color, .5);
+  padding: 14px;
 
-.skills-row__title {
-  font-size: 24px;
-  font-weight: 700;
-  padding-left: 20px;
-  margin-bottom: 18px;
+  @include phones {
+    font-size: 16px;
+  }
 }
