@@ -1,14 +1,8 @@
 import Vue from "vue";
 
 
-const thumbs = {
-  template: "#slider-thumbs",
-  props: ["works", "currentWork"],
-};
-
 const display = {
   template: "#slider-display",
-  components: { thumbs },
   props: ["currentWork", "works", "currentIndex"],
   computed: {
     indexStart() {
@@ -16,10 +10,6 @@ const display = {
     },
     indexEnd() {
       return this.currentIndex == this.works.length -1;
-    },
-    reversedWorks() {
-      const works = [...this.works];
-      return works.reverse();
     }
   }
 };
@@ -65,6 +55,9 @@ new Vue({
           this.currentIndex--;
           break;
       }
+    },
+    changeSlide(index) {
+      this.currentIndex = index;
     },
     makeArrWithRequireImages(array) {
       return array.map((item) => {

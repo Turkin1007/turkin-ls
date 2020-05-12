@@ -3,7 +3,11 @@
   padding-top: 180px;
   padding-bottom: 300px;
 
-  
+  @include laptop {
+    padding-bottom: 20px;
+    padding-top: 100px;
+  }
+
   @include phones {
    flex-direction: column;
   }
@@ -15,7 +19,9 @@
   justify-content: flex-end;
   padding-right: 140px;
 
-  
+  @include tablets {
+    padding-right: 10px;
+  }
   @include phones {
   width: 100%;
   padding: 0;

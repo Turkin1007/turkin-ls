@@ -15,10 +15,8 @@ script(type="text/x-template")#talking-info
   .talking__info
     titles
     .talking__button
-      button(@click="$emit('slide', 'prev')" :disabled="indexStart").talking__btn
-        +icon("arrow", "arrow__left-img talking__btn-color")
-      button(@click="$emit('slide', 'next')" :disabled="indexEnd").talking__btn
-        +icon("arrow", "arrow__right-img talking__btn-color" )
+      button(@click="$emit('slide', 'prev')" :disabled="indexStart").talking__btn.btn__left
+      button(@click="$emit('slide', 'next')" :disabled="indexEnd").talking__btn.btn__right
     
 
 script(type="text/x-template")#talking-titles
