@@ -5,26 +5,16 @@
       .swiper-control
         button.swiper-btn.swiper-button-prev(slot="button-prev")
         button.swiper-btn.swiper-button-next(slot="button-next")
-    swiper-slide 
+    swiper-slide(v-for ="review in speakers") 
       .talking__content-left
-        //- +icon("quote", "quote-img") 
-        .talking__content-text
-          p Этот парень проходил обучение
-          p веб-разработке не где-то, а в LoftSchool!
-          p 4,5 месяца только самых тяжелых
-          p испытаний и бессонных ночей!
+        //- +icon("quote", "quote-img")
+        .talking__content-text {{review.text}}
         .talking__content-autor
           .talking__content-autor__avatar
-            img(src=("../images/content/dmitriy.png"), "dmitriy-img")
+            img(:src="review.photo").talking-img
           .talking__content-autor__desc
-            .talking__content-autor__name
-              p Ковальчук Дмитрий
-            .talking__content-autor__rank
-              p Основатель LoftSchool
-    swiper-slide Slide 2
-    swiper-slide Slide 3
-    swiper-slide Slide 4
-    swiper-slide Slide 5
+            .talking__content-autor__name {{review.name}}
+            .talking__content-autor__rank {{review.occ}}
 </template>
  
 <script>
@@ -40,7 +30,11 @@ export default {
   },
   data() {
     return {
+      speakers: [],
+      currentIndex: 0,
       swiperOptions: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
@@ -48,7 +42,7 @@ export default {
       }
     }
   },
-  computed:{
+  methods:{
     makeArrWithRequireImages(array) {
       return array.map((item) => {
         const requirePic = require(`../images/content/${item.photo}`);

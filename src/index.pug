@@ -28,22 +28,22 @@ html(lang="en")
         svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape
           polygon(points="0,100 1000,100 1000,0")   
       //VALUES
-      section.values-section
+      section.values-section#values
         include ./pug/values.pug
       //WORKS
-      section.works
+      section.works#works
         include ./pug/work.pug
       .triangles.triangles__work
-      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape
-        polygon(points="0,0 500,100 1000,0")
+        svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape
+          polygon(points="0,0 500,100 1000,0")
       //ABOUT_ME
       .parallax__buddha
         +parallax('buddha')
         //TALKING
-        section.talking
+        section.talking#talking
           include ./pug/talking.pug
         //LINK WITH ME
-        section.link__withme
+        section.link__withme#link
           include ./pug/link-withme.pug 
       //FOOTER
       section.footer
