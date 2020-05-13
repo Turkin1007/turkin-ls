@@ -7,3 +7,4 @@ import "./scripts/skills";
 import "./scripts/parallax-mauntain";
 import "./scripts/works";
 import "./scripts/talkings";
+import "./scripts/parallax-buddha";
