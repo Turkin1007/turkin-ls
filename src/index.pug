@@ -1,4 +1,5 @@
 include ./mixins.pug
+include ./pug/parallax
 
 <!DOCTYPE html>
 html(lang="en")
@@ -11,40 +12,39 @@ html(lang="en")
   body
     .wrapper
       section.welcome-section
-        section.parallax__mountain
-          include ./pug/parallax-mountain.pug
-            //HERO
-            section.hero
-              include ./pug/hero.pug 
-            //ABOUT 
-            section.about-section
-              include ./pug/about.pug
-        section.triangles.values-section__triangles
-          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle
-            polygon(points="0,0 0,100 1000,100")
-          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__item.triangle
-            polygon(points="0,100 1000,100 1000,0")          
+        //HERO
+        section.header
+          include ./pug/header.pug 
+        section.parallax__mountain#hero
+          +parallax('mountains')
+          .fullscreen-section.hero
+            include ./pug/hero.pug  
+          //ABOUT 
+          section.about-section#about
+            include ./pug/about.pug
+      .triangles
+        svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape
+          polygon(points="0,0 0,100 1000,100")
+        svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape
+          polygon(points="0,100 1000,100 1000,0")   
       //VALUES
       section.values-section
         include ./pug/values.pug
       //WORKS
       section.works
         include ./pug/work.pug
-        .works__triangles      
-          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").work__item.work
-            polygon(points="0,0 1000,0 1000,100")
-          svg(viewBox="0 0 1000 100" preserveAspectRatio="none").work__item.work
-            polygon(points="0,0 0,100 1000,0")  
+      .triangles.triangles__work
+      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape
+        polygon(points="0,0 500,100 1000,0")
       //ABOUT_ME
-      section.about-me
-        section.parallax__buddha
-          include ./pug/parallax-buddha.pug
-            //TALKING
-            section.talking
-              include ./pug/talking.pug
-            //LINK WITH ME
-            section.link__withme
-              include ./pug/link-withme.pug 
+      .parallax__buddha
+        +parallax('buddha')
+        //TALKING
+        section.talking
+          include ./pug/talking.pug
+        //LINK WITH ME
+        section.link__withme
+          include ./pug/link-withme.pug 
       //FOOTER
       section.footer
         include ./pug/footer.pug

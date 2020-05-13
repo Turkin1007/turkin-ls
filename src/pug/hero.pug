@@ -1,25 +1,9 @@
 .container
-  header.header
-    .header__left 
-      .logo ТМ  
-    .header__menu
-      +nav('menu', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
-    .header__right
-      .hero__socials
-      - var icons = ['insta', 'vk', 'github']
-      ul.socials
-        each item, index in icons
-          li.socials__item(class=`${index === 1 ? 'active' : ''}`)
-            a(href="#").socials__link(target="_blank")
-              +icon(item, 'socials__icon')
-    <button class="hamburger__menu-link" href="" id="bur">
-      <div class="hamburger__menu-link__bars"></div>
-    </button>
   .hero__content
     .user-data
       .user-data__desc Личный сайт <br> веб разработчика
       .user-data__name Михаила <br> Туркина  
   .scroll
-    a(href="#").hero__bottom-btn.scroll-down-btn
+    button(href="#").hero__bottom-btn.scroll-down-btn
       .scroll-down__text Скролл
       +icon("scroll", "scroll-down__icon")
