@@ -1,5 +1,5 @@
 .talking {
-  padding-top: 200px;
+  padding-top: 300px;
 }
 
 .talking__container {
@@ -68,32 +68,32 @@
 
 .talking__content-text {
   margin-bottom: 20px;
+  text-align: left;
   opacity: 0.5;
+  font-size: 16px;
 }
 
 .talking__content-autor__avatar {
-  margin-right: 20px;
   width: 100px;
 }
 
 .talking__content-left {
   position: relative;
-  width: 42%;
+  width: 70%;
 
   @include phones {
     width: 100%;
   }
-}
 
-.talking__content-right {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 42%;
-
-  @include phones {
-    display: none;
+  &:before {
+    content: "";
+    width: 18%;
+    height: 37%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -65px;
+    background: svg-load('quote.svg', fill=rgba($text-color, .05)) center center / contain no-repeat;
   }
 }
 
@@ -110,18 +110,15 @@
 
 .talking__content-autor__rank {
   opacity: .4;
+  font-size: 16px;
 }
 
-.quote-img {
-  fill: #e7eae8;
-  width: 70px;
-  height: 60px;
-  position: absolute;
-  left: -100px;
+.swiper-slide-next {
 
-  @include laptop {
-    width: 35px;
-    height: 30px;
-    left: -38px;
+  .talking__content-left {
+
+    @include phones {
+      display: none;
+    }
   }
 }

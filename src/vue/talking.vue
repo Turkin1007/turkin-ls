@@ -3,11 +3,10 @@
     .swiper-menu(slot="pagination")
       .swiper-title Что обо мне говорят
       .swiper-control
-        button.swiper-btn.swiper-button-prev(slot="button-prev")
-        button.swiper-btn.swiper-button-next(slot="button-next")
+        button.swiper-btn.swiper-btn-prev(slot="button-prev")
+        button.swiper-btn.swiper-btn-next(slot="button-next")
     swiper-slide(v-for ="review in speakers") 
       .talking__content-left
-        //- +icon("quote", "quote-img")
         .talking__content-text {{review.text}}
         .talking__content-autor
           .talking__content-autor__avatar
@@ -36,8 +35,8 @@ export default {
         slidesPerView: 2,
         slidesPerGroup: 2,
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+          nextEl: '.swiper-btn-next',
+          prevEl: '.swiper-btn-prev'
         }
       }
     }

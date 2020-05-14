@@ -1,29 +1,27 @@
-.container.link__container
-  .link__title Связаться со мной
-  .link__data
-    .link__item
-      .link__contents
-        .link__name
-          .link__img
-            +icon("user", "link__img")
+.container
+  .link__container
+    .link__title Связаться со мной
+    form.link__data
+      .link__item
+        .link__contents
+          .link__name
+            .link__img
+              +icon("user", "link__img")
+            .link__content
+              .link__name-text.link-text Введите ваше имя
+                input.link__text__forma(type="text" name="name")
+        .link__contents
+          .link__email
+            .link__img
+              +icon("envelope", "link__img")
+            .link__content
+              .link__email-text.link-text Введите ваш email
+                input.link__text__forma(type="text" name="email")
+      .link__contents-message
+        .link__message
+          .link__img.link__img-message
+            +icon("message", "link__img")
           .link__content
-            .link__name-text.link-text Введите ваше имя
-              input.link__text__forma(type="text" name="name")
-              hr(align="left" width="80%" size="1" color="#464d62")
-      .link__contents
-        .link__email
-          .link__img
-            +icon("envelope", "link__img")
-          .link__content
-            .link__email-text.link-text Введите ваш email
-              input.link__text__forma(type="text" name="email")
-              hr(align="left" width="80%" size="1" color="#464d62")
-    .link__contents
-      .link__message
-        .link__img.link__img-message
-          +icon("message", "link__img")
-        .link__content
-          .link__message-text.link-text Сообщение к письму
-            textarea.link__textarea__forma(type="text" name="message" style="width:730px; height:60px;")
-            hr(align="left" width="90%" size="1" color="#464d62")
-    button(type="submit").send Отправить
+            .link__message-text.link-text Сообщение к письму
+              textarea.link__textarea__forma(type="text" name="message" style="width:730px; height:60px;")
+      button(type="submit").send Отправить

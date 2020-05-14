@@ -12,6 +12,7 @@
 
 .swiper-btn-prev {
 transform: rotate(-180deg);
+margin-right: 40px;
 }
 
 .swiper-btn {
@@ -35,17 +36,19 @@ transform: rotate(-180deg);
     color: #5500f2;
 
     &:before {
-      background-image: svg-load('arrow.svg', fill=#5500f2, width=100%, height=100%);
+      background-image: svg-load('arrow.svg', fill=currentColor, width=100%, height=100%);
     }
   }
 
-  &:disabled {
-    border-color: rgba(currentColor, .9);
-    cursor: unset;
-
-    &:before {
-      background-image: svg-load('arrow.svg', fill=rgba(currentColor, .9), width=100%, height=100%);
-    }
+}
+    
+.swiper-button-disabled {
+  color: rgba(currentColor, .9); 
+  border-color: rgba(currentColor, .9);
+  cursor: unset;
+  
+  &:before {
+    background-image: svg-load('arrow.svg', fill=rgba(currentColor, .9), width=100%, height=100%);
   }
 }
 

@@ -1,13 +1,29 @@
+.link__withme {
+  padding-top: 150px;
+}
+
 .link__container {
   width: 80%;
+  margin-left: 40px;
+  min-width: 1700PX;
 
   @include desktop {
+    min-width: 1100PX;
+  }
+
+  @include laptop {
+    width: 90%;
+    min-width: 660PX;
+  }
+
+  @include tablets {
     width: 100%;
-    padding-left: 60px;
+    padding-bottom: 120px;
+    min-width: 320PX;
+    margin-left: 0;
   }
 
   @include phones {
-    padding: 0;
   }
 }
 
@@ -16,7 +32,6 @@
   height: 32px;
   opacity: .5;
   margin-right: 20px;
-  margin-top: auto;
 }
 
 .link__img-message {
@@ -24,9 +39,11 @@
 }
 
 .link__title {
+  position: relative;
+  z-index: 2;
   font-size: 34px;
   font-weight: 700;
-  background-color: black;
+  padding: 60px 0;
 
   @include laptop {
     text-align: center;
@@ -40,8 +57,12 @@
 .link__data {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 60%;
   justify-content: space-between;
+
+  @include desktop {
+    width: 75%;
+  }
 
   @include laptop {
     width: 100%;
@@ -50,7 +71,9 @@
 
 .link__item {
   display: flex;
+  justify-content: space-between;
   margin-bottom: 40px;
+  width: 100%;
 
   @include phones {
     flex-direction: column;
@@ -60,7 +83,7 @@
 
 .link__name {
   display: flex;
-  width: 50%;
+  align-items: center;
 
   @include phones {
     width: 100%;
@@ -69,18 +92,25 @@
 
 .link__email {
   display: flex;
-  width: 50%;
+  align-items: center;
 }
 
 .link__message {
   display: flex;
   width: 100%;
+  @include phones {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 .link-text {
   margin-bottom: 20px;
   font-weight: 600;
   opacity: 0.7;
+  display: flex;
+  flex-direction: column;
 }
 
 .link__text__forma {
@@ -89,6 +119,7 @@
   font-size: 18px;
   background-color: transparent;
   padding: 10px;
+  margin-top: 20px;
 }
 
 .link__textarea__forma {
@@ -99,13 +130,32 @@
   resize: none;
 }
 
+
 .link__contents {
+  width: 48%;
+  position: relative;
+  border-bottom: 1px solid #414c63;
+
+  @include phones {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.link__contents-message {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #414c63;
+}
+
+.link__content {
   display: flex;
   flex-direction: column;
   width: 100%;
-  
+  padding-right: 40px;
   @include phones {
-    margin-left: 10px;
+    width: 90%;
   }
 }
 
