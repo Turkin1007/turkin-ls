@@ -4,8 +4,8 @@
     .header__menu
       +nav('menu', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
     .header__right
-      .hero__socials
-      - var icons = ['insta', 'vk', 'github']
+      -
+       var icons = ['insta', 'vk', 'github']
       ul.socials
         each item, index in icons
           li.socials__item(class=`${index === 1 ? 'active' : ''}`)

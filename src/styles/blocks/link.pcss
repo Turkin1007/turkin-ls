@@ -1,5 +1,5 @@
 .link__withme {
-  padding-top: 150px;
+  padding-top: 80px;
 }
 
 .link__container {
@@ -17,13 +17,15 @@
   }
 
   @include tablets {
-    width: 100%;
     padding-bottom: 120px;
-    min-width: 320PX;
+    width: 100%;
+    min-width: 440PX;
     margin-left: 0;
   }
 
   @include phones {
+    min-width: 320PX;
+    padding: 0;
   }
 }
 
@@ -98,11 +100,6 @@
 .link__message {
   display: flex;
   width: 100%;
-  @include phones {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-  }
 }
 
 .link-text {
@@ -119,7 +116,6 @@
   font-size: 18px;
   background-color: transparent;
   padding: 10px;
-  margin-top: 20px;
 }
 
 .link__textarea__forma {
@@ -135,11 +131,8 @@
   width: 48%;
   position: relative;
   border-bottom: 1px solid #414c63;
-
   @include phones {
     width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
   }
 }
 
@@ -154,8 +147,9 @@
   flex-direction: column;
   width: 100%;
   padding-right: 40px;
+  
   @include phones {
-    width: 90%;
+    margin-left: 10px;
   }
 }
 

@@ -18,6 +18,7 @@
 .user-data__name {
   font-size: 72px;
   font-weight: bolder;
+  line-height: 1;
   
   @include phones {
     font-size: 36px;
@@ -46,7 +47,10 @@
 .user-info__data-set {
   padding-right: 60px;
   font-weight: 700;
-  opacity: .4;
+  opacity: .5;
+  @include tablets {
+    padding-right: 30px;
+  } 
 }
 
 .user-info__set {

@@ -1,6 +1,6 @@
 <template lang="pug">
-  swiper.swiper(:options="swiperOptions")
-    .swiper-menu(slot="pagination")
+  swiper.swiper(:options="swiperOptions").talking-swiper
+    .swiper-menu(slot="pagination").talk-menu
       .swiper-title Что обо мне говорят
       .swiper-control
         button.swiper-btn.swiper-btn-prev(slot="button-prev")
@@ -34,6 +34,16 @@ export default {
       swiperOptions: {
         slidesPerView: 2,
         slidesPerGroup: 2,
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          769: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          }
+        },
         navigation: {
           nextEl: '.swiper-btn-next',
           prevEl: '.swiper-btn-prev'

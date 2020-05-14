@@ -1,5 +1,15 @@
 .talking {
-  padding-top: 300px;
+  padding-top: 260px;
+
+  @include laptop {
+    padding-top: 260px;
+  }
+  @include tablets {
+    padding-top: 100px;
+  }
+  @include phones {
+    padding-top: 60px;
+  }
 }
 
 .talking__container {
@@ -16,6 +26,10 @@
     width: 94%;
   }
 
+  @include tablets {
+    width: 100%;
+  }
+
   @include phones {
     padding: 0;
     margin:0 auto;
@@ -30,6 +44,10 @@
 
   @include laptop {
     margin-right: 60px;
+  }
+
+  @include tablets {
+    font-size: 24px;
   }
 
   @include phones {
@@ -67,7 +85,7 @@
 }
 
 .talking__content-text {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-align: left;
   opacity: 0.5;
   font-size: 16px;
@@ -92,8 +110,20 @@
     display: block;
     position: absolute;
     top: 0;
-    left: -65px;
+    left: -70px;
     background: svg-load('quote.svg', fill=rgba($text-color, .05)) center center / contain no-repeat;
+    @include desktop {
+      left: -60px;
+    }
+    @include laptop {
+      left: -50px;
+    }
+    @include tablets {
+      left: -68px;
+    }
+    @include phones {
+      display: none;
+    }
   }
 }
 
@@ -113,12 +143,9 @@
   font-size: 16px;
 }
 
-.swiper-slide-next {
-
-  .talking__content-left {
-
-    @include phones {
-      display: none;
-    }
+.talk-menu {
+  @include phones {
+    flex-direction: column;
+    align-items: center;
   }
 }

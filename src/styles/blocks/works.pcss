@@ -1,10 +1,23 @@
 .works {
   position: relative;
   padding-bottom: 150px;
+
+  @include laptop {
+    padding-bottom: 40px;
+  }
+  @include tablets {
+    padding-bottom: 0;
+  }
+  @include phones {
+    padding-bottom: 40px;
+  }
 }
 
 .works__content {
   padding-bottom: 60px;
+  @include tablets {
+    padding-bottom: 40px;
+  }
   @include phones {
     padding-bottom: 0px;
   }
