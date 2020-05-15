@@ -1,14 +1,38 @@
-.scroll-img {
-  width: 24px;
-  height: 28px;
+.hero__bottom-btn {
+  display: flex;
   position: absolute;
-  bottom: 5%;
-  left: 110;
+  background-color: transparent;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: $links-color;
+  text-decoration: none;
+  &:hover {
+    .scroll-down__text,
+    .scroll-down__icon {
+      color: #5500f2;
+      fill: #5500f2;
+    }
+  }
 }
 
-.hero__bottom-btn {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
+.scroll-down__text {
+  display: flex;
+    color: #414c63;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-right: 9px;
+    margin-left: -5px;
+}
+
+.scroll-down__icon {
+  color: #414c63;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  fill: #414c63;
 }

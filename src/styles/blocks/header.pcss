@@ -1,8 +1,21 @@
 .header {
+    position: absolute;
+    top: 21px;
+    z-index: 10;
+    width: 100%;
+    transition: background-color .4s ease-in;
+}
+
+.header__container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 40px; 
+  height: 108PX;
+  transition: height .3s ease-in;
+
+  @include tablets {
+    height: 50PX;
+  }
 }
 
 .header__left {
@@ -18,16 +31,16 @@
   width: 60%;
   display: flex;
   justify-content: center;
+  
 
   @include laptop {
-    width: 10%;
+    width: 20%;
   }
 }
 
 .header__right {
   width: 20%;
   display: flex;
-  justify-content: center;
 
   @include phones {
     display: none;

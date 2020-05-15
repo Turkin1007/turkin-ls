@@ -1,19 +1,63 @@
-.values-section__triangles {
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-}
-
 .triangles {
+  color: #fff;
+  position: relative;
   display: flex;
-}
-
-.triangles__item {
-  width: 50%;
   height: 120px;
+  margin-top: -120px;
+  z-index: 1;
+
+  &__shape {
+    flex-basis: 50%;
+    height: 120px;
+    fill: currentColor;
+  }
+
+  @include desktop {
+    height: 80px;
+    margin-top: -80px;
+    &__shape {
+      height: 80px;
+    }
+  }
+
+  @include tablets {
+    height: 50px;
+    margin-top: -50px;
+    .triangles__shape {
+      height: 50px;
+    }
+  }
+  @include phones {
+    height: 20px;
+    margin-top: -20px;
+    .triangles__shape {
+      height: 20px;
+    }
+  }
 }
 
-.triangle {
-  fill: #fff;
+.triangles__work {
+  height: 90px;
+  margin-top: 0;
+  margin-bottom: -89px;
+
+  .triangles__shape {
+    height: 90px;
+    flex-basis: 100%;
+  }
+
+  @include tablets {
+    height: 40px;
+    margin-bottom: -40px;
+    .triangles__shape {
+      height: 40px;
+    }
+  }
+  @include phones {
+    height: 16px;
+    margin-bottom: -16px;
+    .triangles__shape {
+      height: 16px;
+    }
+  }
 }

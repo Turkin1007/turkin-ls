@@ -7,8 +7,12 @@
   width: 300px;
   font-size: 18px;
   color: #fff;
-
+  position: relative;
+  z-index: 2;
   @include laptop {
-    margin: 40px auto 0;
+    margin: 80px auto 0;
+  }
+  &:hover {
+    background: linear-gradient(to right, #9300e8, #9300e8, #4a00ed); 
   }
 }

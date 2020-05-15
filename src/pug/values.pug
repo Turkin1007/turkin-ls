@@ -1,14 +1,9 @@
 .container.values__container
-  .values__title
-    h2.title__values Чем я могу быть полезен вам
   .values__content
-    .values__right
-      +image("content/backpack.png", "backpack__img")
-    .values__left
+    .values__header
+      .values__title Чем я могу быть полезен вам
       .values__text 
-        p Этот сайт я сделал в рамках обучения в Школе онлайн образования 
-        p LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, 
-        p как тут всё классно и красиво!
-      .values-left__content
-        #skills-component
-include ./skills.pug        
+        p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+    .values__skills-list
+      #skills-component
+      include ./skills.pug        

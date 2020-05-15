@@ -1,9 +1,22 @@
+.talking {
+  padding-top: 260px;
+
+  @include laptop {
+    padding-top: 260px;
+  }
+  @include tablets {
+    padding-top: 100px;
+  }
+  @include phones {
+    padding-top: 60px;
+  }
+}
+
 .talking__container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 84%;
-  padding-left: 140px;
 
   @include desktop {
     padding-left: 60px;
@@ -13,27 +26,17 @@
     width: 94%;
   }
 
+  @include tablets {
+    width: 100%;
+  }
+
   @include phones {
     padding: 0;
     margin:0 auto;
   }
 }
 
-.talking {
-  display: flex;
-  padding-top: 230px;
-}
-
-.talking__info {
-  display: flex;
-  padding-bottom: 100px;
-
-  @include phones {
-   flex-direction: column;
-  }
-}
-
-.talking__titles {
+.swiper-title {
   margin-bottom: 60px;
   font-size: 36px;
   font-weight: 700;
@@ -41,6 +44,10 @@
 
   @include laptop {
     margin-right: 60px;
+  }
+
+  @include tablets {
+    font-size: 24px;
   }
 
   @include phones {
@@ -78,33 +85,45 @@
 }
 
 .talking__content-text {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  text-align: left;
   opacity: 0.5;
+  font-size: 16px;
 }
 
 .talking__content-autor__avatar {
-  margin-right: 20px;
   width: 100px;
 }
 
 .talking__content-left {
   position: relative;
-  width: 42%;
+  width: 70%;
 
   @include phones {
     width: 100%;
   }
-}
 
-.talking__content-right {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 42%;
-
-  @include phones {
-    display: none;
+  &:before {
+    content: "";
+    width: 18%;
+    height: 37%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -70px;
+    background: svg-load('quote.svg', fill=rgba($text-color, .05)) center center / contain no-repeat;
+    @include desktop {
+      left: -60px;
+    }
+    @include laptop {
+      left: -50px;
+    }
+    @include tablets {
+      left: -68px;
+    }
+    @include phones {
+      display: none;
+    }
   }
 }
 
@@ -121,18 +140,12 @@
 
 .talking__content-autor__rank {
   opacity: .4;
+  font-size: 16px;
 }
 
-.quote-img {
-  fill: #e7eae8;
-  width: 70px;
-  height: 60px;
-  position: absolute;
-  left: -100px;
-
-  @include laptop {
-    width: 35px;
-    height: 30px;
-    left: -38px;
+.talk-menu {
+  @include phones {
+    flex-direction: column;
+    align-items: center;
   }
 }

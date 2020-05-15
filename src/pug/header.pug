@@ -1,0 +1,16 @@
+.container.header__container
+    .header__left 
+      .logo ТМ  
+    .header__menu
+      +nav('menu', ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+    .header__right
+      -
+       var icons = ['insta', 'vk', 'github']
+      ul.socials
+        each item, index in icons
+          li.socials__item(class=`${index === 1 ? 'active' : ''}`)
+            a(href="#").socials__link(target="_blank")
+              +icon(item, 'socials__icon')
+    <button class="hamburger__menu-link" href="" id="bur">
+      <div class="hamburger__menu-link__bars"></div>
+    </button>

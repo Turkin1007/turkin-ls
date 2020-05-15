@@ -1,7 +1,10 @@
 .footer-right {
   width: 70%;
-  padding-left: 40px;
+  padding-left: 60px;
 
+  @include desktop {
+    padding: 0;
+  }
   @include phones {
     width: 100%;
     padding-left: 10px;
@@ -17,6 +20,8 @@
 
   @include laptop {
     flex-direction: column;
+    width: 100%;
+    padding-left: 26px;
   }
 
 }

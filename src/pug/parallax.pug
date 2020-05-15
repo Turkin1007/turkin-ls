@@ -1,0 +1,24 @@
+-
+  var
+  mountains = [0.1, 0.13, 0.20, 0.21, 0.22, 0.25, 0.28],
+  buddha = [0, 0.13, 0.2, 0.1, 0.1, 0.1]
+
+mixin layout(parallax, speed, i)
+  -
+    var
+    layerIndex = i + 1,
+    ext = i === 0 ? 'jpg' : 'png';
+
+  .parallax__layer(data-speed=`${speed}`)
+    +image(`parallax/${parallax}/${layerIndex}.${ext}`, 'parallax__image')
+
+mixin parallax(parallax)
+  if (parallax === 'buddha')
+    div(class=`parallax parallax--${parallax}` data-percent="50")
+      - for (var i = 0; i < buddha.length; i++)
+      +layout(parallax, buddha[i], i)
+  else
+    div(class=`parallax parallax--${parallax}` data-percent="0")
+      - for (var i = 0; i < mountains.length; i++)
+      +layout(parallax, mountains[i], i)
+      .parallax__layer(data-speed=`${mountains[mountains.length - 1]}`)
