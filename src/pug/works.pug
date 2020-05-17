@@ -14,20 +14,22 @@ script(type="text/x-template")#slider-container
 script(type="text/x-template")#slider-display
   .works-slider__pics(:data-slide="currentIndex + 1")
     .works-slider__pics-content
-      .works-slider__fullpic-container
-        img(:src="currentWork.photo").works-slider__fullpic
+      .works-slider__list
+        .works-slider__preview
+          img(:src="currentWork.photo").works-slider__fullpic
         .works-slider__buttons
           button(@click="$emit('slide', 'next')" :disabled="indexEnd").works-slider__btn.works-slider__btn_next
           button(@click="$emit('slide', 'prev')" :disabled="indexStart").works-slider__btn.works-slider__btn_prev
-        ul.works-slider__thumbs
-          li.works-slider__thumb-item(
-            v-for="work, index in works" 
-            :key="work.id"
-            :class="{active: currentWork.id === work.id}"
-            @click="$emit('changeSlide', index)"
-            )
-            button.works-slider__thumb-link
-              img(:src="work.photo").works-slider__thumb
+        .works-slider__thumbs
+          ul.works-slider__thumbs-list
+            li.works-slider__thumb-item(
+              v-for="work, index in works" 
+              :key="work.id"
+              :class="{active: currentWork.id === work.id}"
+              @click="$emit('changeSlide', index)"
+              )
+              button.works-slider__thumb-link
+                img(:src="work.photo").works-slider__thumb
 
 script(type="text/x-template")#slider-info
   .works-slider__data

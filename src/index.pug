@@ -32,6 +32,9 @@ html(lang="en")
         include ./pug/values.pug
       //WORKS
       section.works#works
+        linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+          stop(offset="0%" stop-color="#5500f2")
+          stop(offset="100%" stop-color="#8f00ef")
         include ./pug/work.pug
       .triangles.triangles__work
         svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape
