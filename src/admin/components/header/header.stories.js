@@ -1,24 +1,24 @@
-import headline from "./headline.vue";
+import header from "./header.vue";
 
 export default {
-  title: "headline"
+  title: "header"
 }
 
 export const defaultView = () => ({
-  components: {headline},
+  components: {header},
   template: `
-    <headline/>
+    <header/>
   `
 })
 
 export const withContent = () => ({
-  components: {headline},
+  components: {header},
   template: `
-    <headline>
+    <header>
       <h2>
         Содержимое
       </h2>  
-    </headline>  
+    </header>  
   `
 });
 

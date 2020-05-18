@@ -1,14 +1,14 @@
 <template lang="pug">
-  .tabs-components
-    ul.list
-      li.item(
-        v-for="tab in tabs" :key="tab.id"
-        :class="{'active' : activeTabId === tab.id}"
-      )
-        button.btn(
-          type="button"
-          @click="handleChange(tab)"
-        ) {{tab.title}}
+.tabs
+  .page__container
+    .tabs__container
+      ul.tabs__list
+        li.tabs__item
+          router-link(class="tabs__link" active-class="tabs__link--active" exact to="/skills") Обо мне
+        li.tabs__item
+          router-link(class="tabs__link" active-class="tabs__link--active" exact to="/works") Работы
+        li.tabs__item
+          router-link(class="tabs__link" active-class="tabs__link--active" exact to="/reviews") Отзывы
 </template>
 
 <script>
@@ -36,32 +36,35 @@ export default {
 </script>
 
 <style lang="postcss">
-  .tabs-component {
+.tabs {
+  &__list {
     display: flex;
+    height: 77px;
   }
 
-  .list {
-    display: flex;
+  &__item {
+    margin-right: 30px;
+    height: 100%;
   }
 
-  .item {
-    position: relative;
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 100%;
+    color: #414c63;
+    line-height: 2;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+    transition: all .3s ease-in;
 
-    &.active {
-      &:before {
-        position: absolute;
-        content: " ";
-        display: block;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 3px;
-        background: red;
-      }
+    &--active,
+    &:hover {
+      color: #5500f2;
+      font-weight: 600;
+      border-color: currentColor;
     }
   }
-
-  .btn {
-    padding: 20px;
-  }
+}
 </style>

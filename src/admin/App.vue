@@ -1,27 +1,28 @@
 <template lang="pug">
-  //- div.root-wrapper-container
-  //-   div.root-container
-  //-     template  
-        //- header.header-container
-        //-   headline
-        //-     user(
-        //-       userpic=":src="../images/content/user.png"
-        //-       username="Туркин Михаил"
-        //-     )
-        //- section.tab-container
-        //-   tabs
-        //- main.content-container
+  .root-wrapper
+    router-view(name="header")
+    vc-tabs
+    .page__wrapper(:class="{ 'page__wrapper--dark': $route.path === '/login' }")
+      router-view
+      vc-skills
+      vc-works
 </template>
+
 <script>
-import headline from "./components/headline";
-import tab from "./components/tabs";
-import user from "./components/user";
+import Header from "./components/header/header";
+import Tabs from "./components/tabs/tabs";
+import Skills from "./pages/skills/skills";
+import Works from "./pages/works/works";
+
 
 export default {
   components: {
-    headline, 
-    tab, 
-    user
+    vcHeader: Header,
+    vcTabs: Tabs,
+    vcSkills: Skills,
+    vsWorks: Works,
   }
 };
 </script>
+
+<style lang="postcss" src="./styles/main.pcss"></style>
