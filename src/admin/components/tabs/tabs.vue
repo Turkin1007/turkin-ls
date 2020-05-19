@@ -4,7 +4,7 @@
     .tabs__container
       ul.tabs__list
         li.tabs__item
-          router-link(class="tabs__link" active-class="tabs__link--active" exact to="/skills") Обо мне
+          router-link(class="tabs__link" active-class="tabs__link--active" exact to="/") Обо мне
         li.tabs__item
           router-link(class="tabs__link" active-class="tabs__link--active" exact to="/works") Работы
         li.tabs__item

@@ -17,6 +17,12 @@
               vc-works-item(:work="work" @editWork="editWork") 
 </template>
 
+<script>
+export default {
+  
+}
+</script>
+
 <style lang="postcss">
 @import "../../../styles/mixins.pcss";
 
