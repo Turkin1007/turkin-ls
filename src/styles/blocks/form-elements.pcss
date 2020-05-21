@@ -1,0 +1,90 @@
+/* Form's elements
+============================================================================================ */
+.form {
+  &__row {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  &__label {
+    display: block;
+    color: rgba($links-color, .3);
+    font-weight: 600;
+    line-height: 36px;
+    cursor: pointer;
+  }
+
+  &__input-wrap {
+    display: flex;
+    position: relative;
+  }
+
+  &__input,
+  &__textarea {
+    background: transparent;
+    border: 0;
+    color: $links-color;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 36px;
+    padding: 0 0 12px 0;
+    border-bottom: 2px solid $links-color;
+    order: 1;
+    cursor: pointer;
+
+    &:focus {
+      cursor: initial;
+    }
+  }
+
+  &__p-left {
+    padding-left: 40px;
+  }
+
+  &__textarea {
+    resize: none;
+    height: calc(36px * 2 + 4px);
+    @include phones {
+      height: calc(34px * 3 + 4px);
+    }
+  }
+
+  &__icon {
+    display: flex;
+    position: absolute;
+    top: 4px;
+    width: 26px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__input:focus,
+  &__textarea:focus {
+    border-bottom-color: $links-active;
+  }
+
+  @each $icon in (user, key, envelope, message) {
+    &__icon--$(icon) {
+      background-image: svg-load("$(icon).svg", fill=#cfd2d7);
+    }
+
+    &__input:focus ~ .form__icon--$(icon) {
+      background-image: svg-load("$(icon).svg", fill=$links-active);
+    }
+  }
+}
+
+@each $icon in (user, key, envelope, message) {
+  .error {
+    .form__icon--$(icon) {
+      background-image: svg-load("$(icon).svg", fill=#f00);
+    }
+  }
+}
+
+.error input[type="text"],
+.error input[type="password"]{
+  border-color: #f00;
+}

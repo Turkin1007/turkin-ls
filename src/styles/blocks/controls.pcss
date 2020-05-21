@@ -1,0 +1,37 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.controls--works {
+  .controls__item {
+    &:nth-child(1) > .btn {
+      transform: rotate(-90deg);
+    }
+
+    &:nth-child(2) > .btn {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.controls--reviews {
+  .controls__item {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:nth-child(1) > .btn {
+      transform: rotate(-180deg);
+    }
+  }
+}

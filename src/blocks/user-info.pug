@@ -1,0 +1,10 @@
+mixin user_info (mod)
+  <!-- User info block -->
+  if (mod === 'h1')
+    div(class=`user-info`)
+      h1.user-info__desc Личный сайт <span>веб разработчика</span>
+      .user-info__username Михаила <span>Туркина</span>
+  else
+    div(class=`user-info user-info--${mod}`)
+      .user-info__desc Личный сайт <span>веб разработчика</span>
+      .user-info__username Михаила <span>Туркина</span>
