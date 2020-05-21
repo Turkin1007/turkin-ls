@@ -69,7 +69,10 @@
     "vue": "^2.6.7",
     "vue-awesome-swiper": "^4.1.1",
     "vue-axios": "^2.1.5",
+    "vue-carousel": "^0.18.0",
     "vue-router": "^3.0.2",
-    "vuex": "^3.4.0"
+    "vue-scrollto": "^2.18.1",
+    "vuex": "^3.4.0",
+    "yarn": "^1.22.4"
   }
 }

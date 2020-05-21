@@ -7,7 +7,7 @@
         .header__info
           .user.user--admin-header
             .user__column
-              +avatarVue("content/user.png", 45)
+              +avatarVue("content/user.jpg", 45)
             .user__column
               .user__row.user__name Туркин Михаил
           .header__title Панель администрирования

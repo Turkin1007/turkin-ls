@@ -1,38 +1,40 @@
-.hero__bottom-btn {
+/* Scroll button
+============================================================================================ */
+.scroll-down {
   display: flex;
-  position: absolute;
-  background-color: transparent;
-  left: 50%;
-  top: 90%;
-  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   color: $links-color;
   text-decoration: none;
+
   &:hover {
     .scroll-down__text,
     .scroll-down__icon {
-      color: #5500f2;
-      fill: #5500f2;
+      color: $links-active;
+      fill: $links-active;
     }
   }
-}
 
-.scroll-down__text {
-  display: flex;
-    color: #414c63;
+  &__text {
+    display: flex;
+    color: inherit;
     font-size: 18px;
     font-weight: 600;
     line-height: 30px;
     margin-right: 9px;
     margin-left: -5px;
-}
+    transition: all .4s ease-in;
+  }
 
-.scroll-down__icon {
-  color: #414c63;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  fill: #414c63;
+  &__icon {
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    fill: $links-color;
+    transition: all .4s ease-in;
+  }
 }
