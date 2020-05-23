@@ -1,15 +1,41 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
-import Works from './pages/works/works.vue';
-import Reviews from './pages/reviews/reviews.vue';
-import Skills from './pages/skills/skills.vue';
+import Header from "./components/header/header";
+import Tabs from "./components/tabs/tabs";
 
 const router = new VueRouter({
     routes: [
-      { path: '/works', component: Works },
-      {path: '/reviews', component: Reviews },
-      { path: '/', component: Skills },
+      {
+        path: '/',
+        components: {
+          default: () => import('./pages/skills/skills.vue'),
+          tabs: Tabs,
+          header: Header
+        }
+      },
+      {
+        path: '/works',
+        components: {
+          default: () => import('./pages/works/works.vue'),
+          tabs: Tabs,
+          header: Header
+        }
+      },
+      {
+        path: '/reviews',
+        components: {
+          default: () => import('./pages/reviews/reviews.vue'),
+          header: Header,
+          tabs: Tabs
+        }
+      },
+      {
+        path: '/login',
+        components: {
+          default: () => import('./pages/login/login.vue'),
+        }
+      }
     ]
 });
 

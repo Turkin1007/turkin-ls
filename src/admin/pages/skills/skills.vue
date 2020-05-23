@@ -101,6 +101,10 @@ section.about
   display: flex;
   justify-content: end;
   align-items: center;
+  @include laptop {
+  margin-left: 20px;
+  width: 92%;
+  }
 }
 
 .card-list {
@@ -152,10 +156,13 @@ section.about
 }
 
 .skills__title-new {
-  width: 55%;
+  width: 57%;
   margin-left: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #414c63;
+  @include laptop {
+    width: 75%;
+  }
 }
 
 .skills {

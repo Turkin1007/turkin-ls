@@ -58,13 +58,20 @@ img {
   max-height: 100%;
 }
 
+.root-container {
+  background: url("~images/bg/bg_welcome.jpg") 100%/cover no-repeat;
+  min-width: 450px;
+}
+
 .root-wrapper {
   position: relative;
+  max-width: 1080px;
+  min-width: 450px;
+  margin: 0 auto;
 }
 
 .page {
   &__wrapper {
-    background: url("~images/bg/bg_welcome.jpg") 50%/cover no-repeat;
     position: relative;
     min-height: 100vh;
     padding: 60px 0;
@@ -90,7 +97,6 @@ img {
 
   &__container {
     position: relative;
-    max-width: 92.5rem;
     width: 95%;
     margin: 0 auto;
   }

@@ -50,6 +50,7 @@
 </template>
 
 <style lang="postcss" scoped>
+@import "../../../styles/mixins.pcss";
 .page__contents {
   background-color: #fff;
   width: 100%;
@@ -78,10 +79,18 @@
 .reviews__content-body {
   display: flex;
   width: 90%;
+  @include tablets {
+    width: 95%;
+  }
 }
 
 .reviews-left {
   width: 25%;
+  margin-right: 40px;
+  @include laptop {
+    width: 35%;
+    margin-right: 20px;
+  }
 }
 
 .reviews__left-content {
@@ -101,6 +110,10 @@
   background-size: 50%;
   background-color: #dfe0e3;
   margin-bottom: 20px;
+  @include tablets {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 button {
@@ -118,6 +131,9 @@ button {
   display: flex;
   flex-direction: column;
   width: 75%;
+  @include tablets {
+    width: 65%;
+  }
 }
 
 .reviews__right-desc {
@@ -125,11 +141,17 @@ button {
   width: 100%;
   justify-content: space-between;
   margin-bottom: 40px;
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .reviews-right__item {
   width: 45%;
   border-bottom: 1px solid #414c63;
+  @include tablets {
+    width: 100%;
+  }
 }
 
 input {
@@ -198,6 +220,13 @@ input {
 .reviews__content-footer {
   width: 100%;
   display: flex;
+  @include laptop {
+    justify-content: center;
+  }
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .footer__reviews-add {
@@ -212,6 +241,17 @@ input {
   width: calc(100% / 3 -30px);
   height: 450px;
   margin-right: 20px;
+  @include laptop {
+    width: calc(100% / 2 - 50px);
+  }
+  @include tablets {
+    width: 60%;
+    margin-bottom: 30px;
+    margin-right: 0;
+  }
+  @include phones {
+    width: 80%;
+  }
 }
 
 .btn {
@@ -269,7 +309,18 @@ input {
 .footer__reviews-new {
   width: calc(100% / 3 -30px);
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  height: 450px;
+  @include laptop {
+    width: calc(100% / 2 - 50px);
+  }
+  @include tablets {
+    width: 60%;
+  }
+  @include phones {
+    width: 80%;
+  }
 }
+
 .review-avatar {
   border-radius: 50%;
   margin-right: 20px;
