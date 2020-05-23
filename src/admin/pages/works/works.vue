@@ -34,7 +34,7 @@
           .page-add__text Добавить работу
         .footer__page-new
           .footer-top
-            img(src="https://picsum.photos/350/200")
+            img(src="https://picsum.photos/450/200")
             ul.tags-list
               li.tags-item HTML
               li.tags-item CSS
@@ -86,6 +86,13 @@ export default {
 
 .page__content-footer {
   display: flex;
+  @include laptop {
+    justify-content: center;
+  }
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .page-left {
@@ -121,6 +128,9 @@ export default {
   text-transform: uppercase;
   background-color: #fff;
   background-image: linear-gradient(to right, #006aed 0%, #3f35cb 100%);
+  @include tablets {
+    width: 150px;
+  }
 }
 
 .page-right {
@@ -202,10 +212,6 @@ input {
   border: none;
 }
 
-.footer__page-add {
-  width: 100%;
-  height: 100%;
-}
 
 .btn {
   display: flex;
@@ -264,14 +270,34 @@ input {
   background-image: linear-gradient(to right, #006aed 0%, #3f35cb 100%);
   width: calc(100% / 3 -30px);
   height: 450px;
+  @include laptop {
+    width: calc(100% / 2 - 50px);
+  }
+  @include tablets {
+    width: 60%;
+    margin-bottom: 30px;
+  }
+  @include phones {
+    width: 80%;
+  }
 }
 
 .footer__page-new {
   width: calc(100% / 3 -30px);
   margin-left: 20px;
-  box-shadow: ;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   height: 450px;
+  @include laptop {
+    height: 450px;
+    width: calc(100% / 2 - 50px);
+  }
+  @include tablets {
+    width: 60%;
+    margin-left: 0;
+  }
+  @include phones {
+    width: 80%;
+  }
 }
 
 .page-add__text {
@@ -318,12 +344,16 @@ input {
 
 .footer-content__list {
   width: 80%;
+  height: 55%;
   padding-top: 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   font-weight: 700;
   justify-content: space-between;
+  @include tablets {
+    height: 55%;
+  }
 }
 
 .footer-content {
@@ -341,6 +371,7 @@ input {
 .footer-change {
   display: flex;
   justify-content: space-between;
+  margin-top: auto;
 }
 
 .footer-edit {

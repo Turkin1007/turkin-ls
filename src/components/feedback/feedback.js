@@ -16,13 +16,13 @@ export default {
   },
   validators: {
     name: function (value) {
-      return Validator.value(value).required();
+      return Validator.value(value).required('Поле обязательно для заполнения').minLength(6, 'должно быть мин. 6 символов');
     },
     email: function (value) {
-      return Validator.value(value).required().email();
+      return Validator.value(value).required('Поле обязательно для заполнения').email('Введите правильный Email');
     },
     message: function (value) {
-      return Validator.value(value).required().minLength(15);
+      return Validator.value(value).required('Поле обязательно для заполнения').minLength(15, 'должно быть мин. 15 символов');
     }
   },
   methods: {
