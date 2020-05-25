@@ -51,7 +51,7 @@ export default {
       return Validator.value(value).required('Поле должно быть заполненно').minLength(5, 'мин. 5 символов')
     },
     password: function (value) {
-      return Validator.value(value).required('Поле должно быть заполненно').minLength(5, 'мин. 8 символов')
+      return Validator.value(value).required('Поле должно быть заполненно').minLength(8, 'мин. 8 символов')
     },
   },
   methods: {
