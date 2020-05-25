@@ -35,6 +35,14 @@ export default {
             this.validation.reset();
           }
         });
+    },
+    submit: function () {
+      this.$validate()
+        .then(function (success) {
+          if (success) {
+            alert('Validation succeeded!');
+          }
+        });
     }
   }
 };

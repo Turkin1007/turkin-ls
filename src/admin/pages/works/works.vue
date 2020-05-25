@@ -344,14 +344,15 @@ input {
 
 .footer-content__list {
   width: 80%;
-  height: 55%;
+  height: 62%;
   padding-top: 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   font-weight: 700;
   justify-content: space-between;
-  @include tablets {
+  
+  @include laptop {
     height: 55%;
   }
 }
