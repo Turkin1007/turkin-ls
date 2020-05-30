@@ -14,7 +14,7 @@
     }),
     components: {
       vcInput: () => import('../input/input.vue')
-    },
+    }
   };
 </script>
 

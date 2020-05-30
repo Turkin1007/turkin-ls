@@ -8,7 +8,7 @@
       :placeholder="placeholder"
       :value="value"
       @input="$emit('input', $event.target.value)").input__element
-  vc-tooltip-input(:errorText="errorText") 
+  vc-tooltip-input(:errorText="errorText")
 
 .input(v-else :class="iconClass")
   label(v-if="title" :for="'input__' + name").input__label {{ title }}

@@ -125,7 +125,87 @@
   }
 }
 
+/* Values section
+============================================================================================ */
+.values {
+  position: relative;
+  padding: 147px 0 63px;
+  min-height: calc(147px + 627px + 63px);
 
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__header {
+    margin-bottom: 102px;
+    margin-right: 200px;
+    @include tablets {
+      width: 80%;
+      margin: 0 auto 102px;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 53px;
+  }
+
+  &__description {
+    font-weight: 600;
+    line-height: 30px;
+    color: rgba($links-color, .5);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 70%;
+    min-height: 627px;
+
+    @include desktop {
+      width: auto;
+      margin-left: calc(83vw - 40rem);
+    }
+    @include tablets {
+      margin-left: 0;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 520px;
+      height: 627px;
+      background-image: url('~images/content/skills-image.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      left: -500px;
+      @include tablets {
+        width: calc(520px / 2);
+        height: calc(627px / 2);
+        position: relative;
+        top: unset;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+
+  }
+
+  &__skills {
+    margin-left: 11%;
+    @include tablets {
+      margin-left: 0;
+    }
+  }
+}
 
 /* Works section
 ============================================================================================ */
@@ -206,7 +286,38 @@
   }
 }
 
+/* Reviews Section
+============================================================================================ */
+.reviews {
+  padding: 255px 0 90px;
+  z-index: 1;
+  @include phones {
+    padding-top: 100px;
+    padding-bottom: 70px;
+  }
 
+  &__container {
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 90px;
+    @include tablets {
+      flex-direction: column;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+    margin-right: 94px;
+    @include tablets {
+      margin-right: 0;
+      margin-bottom: 25px;
+    }
+  }
+}
 
 /* Feedback Section
 ============================================================================================ */

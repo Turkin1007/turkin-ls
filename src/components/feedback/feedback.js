@@ -16,13 +16,13 @@ export default {
   },
   validators: {
     name: function (value) {
-      return Validator.value(value).required('Поле обязательно для заполнения').minLength(6, 'должно быть мин. 6 символов');
+      return Validator.value(value).required('Поле обязательно для заполнения').minLength(6, 'Должно быть мин. 6 символов');
     },
     email: function (value) {
       return Validator.value(value).required('Поле обязательно для заполнения').email('Введите правильный Email');
     },
     message: function (value) {
-      return Validator.value(value).required('Поле обязательно для заполнения').minLength(15, 'должно быть мин. 15 символов');
+      return Validator.value(value).required('Поле обязательно для заполнения').minLength(15, 'Должно быть мин. 15 символов');
     }
   },
   methods: {
@@ -33,14 +33,6 @@ export default {
             EventBus.$emit('validateEvent', { showed: true });
             this.name = this.email = this.message = '';
             this.validation.reset();
-          }
-        });
-    },
-    submit: function () {
-      this.$validate()
-        .then(function (success) {
-          if (success) {
-            alert('Validation succeeded!');
           }
         });
     }

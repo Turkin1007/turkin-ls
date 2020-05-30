@@ -1,0 +1,44 @@
+.quote {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 24%;
+  @include tablets {
+    padding-left: 40px;
+  }
+  @include phones {
+    padding-left: 0;
+  }
+
+  &:before {
+    content: "";
+    width: 18%;
+    height: 37%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: svg-load('quote.svg', fill=rgba($text-color, .05)) center center / contain no-repeat;
+
+    @include tablets {
+      width: 30px;
+      height: 26px;
+    }
+    @include phones {
+      display: none;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    color: rgba($text-color, .5);
+    font-weight: 600;
+    line-height: 30px;
+    @include tablets {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+}

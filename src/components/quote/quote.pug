@@ -1,0 +1,12 @@
+script(type="text/x-template")#quote-template
+  .quote
+    .quote__text
+      p {{ review.text }}
+    .quote__user
+      .user
+        .user__column
+          .avatar.avatar--74
+            img(:src="review.photo", alt="").avatar-pic
+        .user__column
+          .user__row.user__name {{ review.author }}
+          .user__row.user__occ {{ review.occ }}

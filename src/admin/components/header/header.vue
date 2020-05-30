@@ -1,28 +1,40 @@
 <template lang="pug">
-  include ../../../mixins.pug
+include ../../../mixins.pug
 
-  header.header
-    .page__container
-      .header__container
-        .header__info
-          .user.user--admin-header
-            .user__column
-              +avatarVue("content/user.jpg", 45)
-            .user__column
-              .user__row.user__name Туркин Михаил
-          .header__title Панель администрирования
-        .header__btn
-          button(type="button").btn--exit Выйти
+header.header
+  .page__container
+    .header__container
+      .header__info
+        .user.user--admin-header
+          .user__column
+            +avatarVue("content/user.jpg", 45)
+          .user__column
+            .user__row.user__name Михаил Туркин
+        .header__title Панель администрирования
+      .header__btn
+        button(type="button" @click="logoutTheUser").btn--exit Выйти
 </template>
 
+<!--SCRIPT-->
+
 <script>
-export default {
-  
-}
+  import { mapActions } from 'vuex';
+
+  export default {
+    methods: {
+      ...mapActions('user', ['logoutUser']),
+      async logoutTheUser () {
+        await this.logoutUser();
+        localStorage.removeItem('token');
+        await this.$router.push('/login')
+      }
+    }
+  }
 </script>
 
+<!--STYLE-->
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 .header {
   display: flex;
   flex-direction: column;
@@ -47,18 +59,5 @@ export default {
     line-height: 1.5;
     margin-left: 28px;
   }
-
-  &__btn {
-    display: block;
-  }
-}
-
-.btn--exit {
-  color: rgba(#ffffff, .7);
-  font-size: 16px;
-  line-height: 1;
-  text-decoration: none;
-  border-bottom: 1px solid;
-  transition: .3s;
 }
 </style>

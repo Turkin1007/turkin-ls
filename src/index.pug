@@ -41,14 +41,20 @@ html(lang="ru")
               .about__user-info: +about_user
               .about__user-greeting
                 h2.about__prolog Привет, меня зовут
-                .title.about__title  Туркин Михаил
+                .title.about__title  Михаил Туркин
                 .about__text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                 .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
       <!--================ Triangles =================-->
       +triangles
       <!--================ Values =================-->
-      section.values-section#values
-        include ./components/values/values.pug
+      .values#skills
+        .container.values__container
+          .values__content
+            .values__header
+              h2.title.values__title Чем я могу быть полезен вам
+              p.values__description Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .values__skills#skills-list
+              vc-skills
       <!--================ Works area =================-->
       section.works#works
         .container.works__container
@@ -65,9 +71,18 @@ html(lang="ru")
       <!--================ Testimonial =================-->
       .testimonial
         +parallax('buddha')
-        <!--================= Talking ==================-->
-        section.talking#talking
-          include ./components/talking/talking.pug
+        <!--================ Reviews section =================-->
+        section.reviews#reviews
+          .container.reviews__container
+            .reviews__header
+              h2.title.reviews__title Что обо мне говорят
+              .reviews__controls
+                ul.controls.controls--reviews
+                  li(@click="prev").controls__item
+                    button(type='button', class=`btn btn--reviews`, :disabled="activePage === 0")
+                  li(@click="next").controls__item
+                    button(type='button', class=`btn btn--reviews`, :disabled="activePage === pages")
+            .reviews__carousel: vc-reviews-carousel
         <!--================ Feedback section =================-->
         section.feedback#feedback
           .container.feedback__container

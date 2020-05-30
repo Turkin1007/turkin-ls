@@ -16,10 +16,10 @@ export default {
       activeLink: '#home',
       links: [
         {href: '#home', text: 'Главная'},
-        {href: '#about', text: 'Обо мне'},
-        {href: '#values', text: 'Навыки'},
+        {href: '#skills', text: 'Обо мне'},
+        {href: '#skills', text: 'Навыки'},
         {href: '#works', text: 'Работы'},
-        {href: '#talking', text: 'Отзывы'},
+        {href: '#reviews', text: 'Отзывы'},
         {href: '#feedback', text: 'Связаться'}
       ]
     };
@@ -28,7 +28,6 @@ export default {
     onStart(elem) {
       const bodyTag = document.querySelector('body');
       bodyTag.classList.remove('overlay');
-      // EventBus.$emit('hash', `#${elem.getAttribute('id')}`);
     },
     onScroll() {
       window.addEventListener('scroll', () => {
@@ -48,10 +47,6 @@ export default {
 
     const hash = location.hash;
     this.active = (hash === '') ? '#home' : hash;
-
-    // EventBus.$on('hash', hash => {
-    //   location.hash = this.activeLink = hash;
-    // });
   },
 
   computed: {

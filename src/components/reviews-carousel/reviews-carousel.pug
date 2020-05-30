@@ -1,0 +1,26 @@
+-
+  var reviews = [
+    {
+      text: "Этот парень проходил обучение веб&#8209;разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
+      author: "Ковальчук Дмитрий",
+      position: "Основатель Loftschool",
+      avatar: 'kovalchuk.jpg'
+    },
+    {
+      text: "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах",
+      author: "Владимир Сабанцев",
+      position: "Преподаватель",
+      avatar: 'sabantsev.jpg'
+    }
+  ];
+//: +quote(review)
+
+script(type="text/x-template")#reviews-carousel-template
+  carousel(
+      :perPageCustom="[[0, 1], [769, 2]]"
+      :navigationEnabled="true"
+      :paginationEnabled="false"
+      @pageChange="pageChange"
+    ).reviews-carousel__list
+    slide(v-for="review in reviews" :key="review.id").reviews-carousel__item
+      vc-quote(:review="review")

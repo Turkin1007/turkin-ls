@@ -1,46 +1,18 @@
-import Vue from "vue";
+import xhr from '../../scripts/xhrRequests';
+import Skill from '../skill/skill';
 
-const skill = {
-  template: "#skill",
-  props: ["skill"],
-  methods: {
-    drawColoredCircle() {
-      const circle = this.$refs["circle"];
-      const dashArray = parseInt(
-        getComputedStyle(circle).getPropertyValue("stroke-dasharray")
-      );
-      const percent = (dashArray / 100) * (100 - this.skill.percent);
-
-      circle.style.strokeDashoffset = percent;
-
-    },
+export default {
+  template: '#skills-template',
+  components: {
+    vcSkill: Skill
+  },
+  data () {
+    return {
+      skillsGroups: []
+    }
   },
   mounted() {
-    this.drawColoredCircle();
-  },
-};
-
-const skillsRow = {
-  template: "#skills-row",
-  components: {
-    skill,
-  },
-  props: ["category"],
-};
-
-new Vue({
-  el: "#skills-component",
-  template: "#skills-list",
-  components: {
-    skillsRow,
-  },
-  data() {
-    return {
-      skills: [],
-    };
-  },
-  created() {
-    const data = require("../../data/skills.json");
-    this.skills = data;
-  },
-});
+    xhr('get', 'categories/174')
+      .then(skillsGroups => this.skillsGroups = skillsGroups)
+  }
+}

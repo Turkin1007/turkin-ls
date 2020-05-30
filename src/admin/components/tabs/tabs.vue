@@ -11,32 +11,12 @@
           router-link(class="tabs__link" active-class="tabs__link--active" exact to="/reviews") Отзывы
 </template>
 
-<script>
-
-const tabs = [
-  {id: 0, title: "Обо мне"},
-  {id: 1, title: "Работы"},
-  {id: 2, title: "Отзывы"},
-]
-
-export default {
-  data() {
-    return{
-      tabs,
-      activeTabId: 0,
-    }
-  },
-  methods: {
-    handleChange(tab) {
-      this.activeTabId = tab.id
-      this.$emit("tabChanged", tab)
-    }
-  }
-}
-</script>
+<!--STYLE-->
 
 <style lang="postcss">
 .tabs {
+  background-color: #fff;
+
   &__list {
     display: flex;
     height: 77px;
@@ -61,7 +41,7 @@ export default {
 
     &--active,
     &:hover {
-      color: #5500f2;
+      color: $links-active;
       font-weight: 600;
       border-color: currentColor;
     }

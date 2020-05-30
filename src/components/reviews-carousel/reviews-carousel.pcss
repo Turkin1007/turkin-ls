@@ -1,0 +1,43 @@
+.reviews-carousel {
+  &__list {
+    display: flex;
+    will-change: transform;
+    transition: transform .3s;
+    max-width: 1000px;
+    margin-left: 2.5%;
+
+    @include phones {
+      &:before {
+        content: "";
+        width: 30px;
+        height: 26px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -40px;
+        background: svg-load('quote.svg', fill=rgba($text-color, .05)) center center / contain no-repeat;
+      }
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+    padding-right: 40px;
+    width: 50%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include tablets {
+      padding-right: 20px;
+    }
+    @include phones {
+      padding-right: 0;
+    }
+  }
+}
+
+.VueCarousel-navigation {
+  display: none;
+}

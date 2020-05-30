@@ -4,63 +4,70 @@ section.about
     .page__header
       .page__columns
         h2.page-title Блок «Обо мне»
+      .page__columns
+        button(type="button" @click="showAddingCard = true").btn.btn--add.btn--text Добавить группу
     .page__content
       ul.about__list
-        li.about__item
+        li(v-if="showAddingCard").about__item
           .card
-            .skills-title
-              input.skills__title.skills__title-new(placeholder="Название новой группы")
-              .check
-                button(type="submit").yes 
-                button(type="submit").no 	
+            vc-skills-title(:category="{ showAddingCard }" @hideCard="hideCard")
             .card__content
             .card__footer
-              .add-new-skill__cell
-                input.skills(placeholder="Новый навык")
-              .add-new-skill__cell  
-                input.skills-lvl(placeholder="0")
-              .add-new-skill__cell
-                button(type="submit").btn.btn--add.btn--big
-
-        li.about__item
+              vc-skills-add-new()
+        li(v-for="category, index in getCategories" :key="index").about__item
           .card
-            .skills-title
-              input.skills__title(placeholder="Frontend")
-              .pen &#9998;
+            vc-skills-title(:category="category")
             .card__content
-              ul.card-list
-                li.card-item
-                  .card-name HTML
-                  .card-lvl 30%
-                  .card-change
-                    .pen &#9998;
-                    .urn &#128465;
-                li.card-item
-                  .card-name CSS
-                  .card-lvl 50%
-                  .card-change
-                    .pen &#9998;
-                    .urn &#128465;
-                li.card-item
-                  .card-name JavaScript
-                  .card-lvl 100%
-                  .card-change
-                    .pen &#9998;
-                    .urn &#128465;
+              ul.skills
+                li(v-for="skill in category.skills" :key="skill.id")
+                  vc-skills-item(:skill="skill")
             .card__footer
-              .add-new-skill__cell
-                input.skills(placeholder="Новый навык")
-              .add-new-skill__cell  
-                input.skills-lvl(placeholder="0")
-              .add-new-skill__cell
-                button(type="submit").btn.btn--add.btn--big
+              vc-skills-add-new(:category="category")
 </template>
 
-<script>
+<!--SCRIPT-->
 
+<script>
+import { mapState, mapActions, mapGetters } from 'vuex';
+
+export default {
+  data: () => ({
+    showAddingCard: false,
+    formBlocked: false,
+    title: '',
+    skill: {
+      title: '',
+      percent: 0,
+      category: 0
+    }
+  }),
+  components: {
+    vcInput: () => import('components/input/input.vue/'),
+    vcSkillsItem: () => import('components/skills-item/skills-item.vue/'),
+    vcSkillsTitle: () => import('components/skills-title/skills-title.vue/'),
+    vcSkillsAddNew: () => import('components/skills-add-new/skills-add-new.vue/'),
+  },
+  computed: {
+    ...mapGetters('categories', ['getCategories']),
+    ...mapState('user', {
+      userID: state => state.user.id
+    })
+  },
+  methods: {
+    ...mapActions('categories', ['loadCategories']),
+    hideCard () {
+      this.showAddingCard = false;
+    }
+  },
+  created () {
+    this.loadCategories(this.userID);
+  }
+};
 </script>
 
-<style lang="postcss" scoped>
+<!--STYLE-->
+
+<style lang="postcss">
 @import "../../../styles/mixins.pcss";
 
 .about {
@@ -77,173 +84,7 @@ section.about
     flex-basis: calc(50% - 30px);
     margin-left: 30px;
     margin-bottom: 30px;
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
   }
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.card__content {
-  padding-top: 20px;
-  height: 100%;
-}
-
-.card__footer {
-  margin-top: auto;
-  margin-left: auto;
-  margin-bottom: 40px;
-  width: 80%;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  @include laptop {
-  margin-left: 20px;
-  width: 92%;
-  }
-}
-
-.card-list {
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.card-item {
-  display: flex;
-  width: 90%;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.card-name {
-  width: 50%;
-  font-weight: 700;
-}
-
-.card-lvl {
-  font-weight: 600;
-  padding: 20px 0;
-}
-
-.card-change {
-  display: flex;
-}
-
-.skills-title {
-  width: 90%;
-  height: 100px;
-  padding-bottom: 20px;
-  padding-top: 30px;
-  border-bottom: 1px solid #414c63;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-}
-
-.skills__title {
-  width: 55%;
-  margin-left: 20px;
-  padding-bottom: 10px;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.skills__title-new {
-  width: 57%;
-  margin-left: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #414c63;
-  @include laptop {
-    width: 75%;
-  }
-}
-
-.skills {
-  font-weight: 600;
-  opacity: .4;
-  border-bottom: 1px solid #414c63;
-  margin-right: 10px;
-}
-
-.skills-lvl {
-  border-bottom: 1px solid #414c63;
-  opacity: .4;
-  width: 50%;
-}
-
-.btn {
-  margin-left: -50px;;
-}
-
-input {
-  background: transparent;
-  border: none;
-}
-
-button {
-  background: transparent;
-  border: none;
-}
-
-.btn--add:before {
-    content: "+";
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    font-weight: 600;
-    border-radius: 50%;
-    font-size: 0.9375rem;
-    width: 1.3125rem;
-    height: 1.3125rem;
-    color: #fff;
-    background-image: -webkit-gradient(linear,left top,right top,from(#006aed),to(#3f35cb));
-    background-image: linear-gradient(90deg,#006aed 0,#3f35cb);
-}
-
-.btn--add, .btn--add:before {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-.btn--add.btn--big:before {
-    font-size: 1.875rem;
-    width: 2.5rem;
-    height: 2.5rem;
-}
-
-.check {
-  display: flex;
-}
-
-.yes {
-  background-image: svg-load("tick.svg", fill=#00d70a);
-  background-repeat: no-repeat;
-  width: 15px;
-  height: 12px;
-  margin-right: 20px;
-} 
-
-.no {
-  background-image: svg-load("cross.svg", fill=#bf2929);
-  background-repeat: no-repeat;
-  width: 14px;
-  height: 12px;
-}
-
-.pen {
-  transform: rotate(90deg);
-  margin-right: 20px;
 }
 
 </style>

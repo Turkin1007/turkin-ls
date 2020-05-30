@@ -31,7 +31,7 @@ module.exports = (env, argv) => {
     exclude: /node_modules/,
     options: {
       presets: ['@babel/preset-env'],
-      plugins: ["@babel/plugin-syntax-dynamic-import"]
+      plugins: ["@babel/plugin-syntax-dynamic-import", "transform-regenerator"]
     }
   };
 
@@ -39,8 +39,7 @@ module.exports = (env, argv) => {
     test: /\.(png|jpe?g|gif|woff2?)$/i,
     loader: "file-loader",
     options: {
-      name: "[hash].[ext]",
-      outputPath: './images/'
+      name: "[hash].[ext]"
     }
   };
 
@@ -87,7 +86,7 @@ module.exports = (env, argv) => {
   const config = {
     entry: {
       main: "./src/main.js",
-      admin: "./src/admin/main.js"
+      admin: ["babel-polyfill", "./src/admin/main.js"]
     },
     output: {
       path: path.resolve(__dirname, "./dist"),
@@ -101,7 +100,9 @@ module.exports = (env, argv) => {
     resolve: {
       alias: {
         vue$: "vue/dist/vue.esm.js",
-        images: path.resolve(__dirname, "src/images")
+        images: path.resolve(__dirname, "src/images"),
+        components: path.resolve(__dirname, "src/admin/components"),
+        "@": path.resolve(__dirname, "src/admin")
       },
       extensions: ["*", ".js", ".vue", ".json"]
     },

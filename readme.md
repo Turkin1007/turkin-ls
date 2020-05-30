@@ -1,5 +1,3 @@
-Turkin Mikhail 27.04.2020-05.06.2020
-
 # Учебный шаблон проекта Portfolio
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/), а так же 
@@ -7,8 +5,8 @@ Turkin Mikhail 27.04.2020-05.06.2020
 
 ##  Чтобы развернуть проект необходимо:
 ```sh
-$ git clone https://github.com/Turkin1007/turkin-ls.git
-$ cd turkin-ls
+$ git clone git@github.com:loftschool/ls-advanced-portfolio.git
+$ cd ls-advanced-portfolio
 $ yarn
 ```
 
