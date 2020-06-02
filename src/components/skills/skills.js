@@ -12,7 +12,7 @@ export default {
     }
   },
   mounted() {
-    xhr('get', 'categories/174')
+    xhr('get', 'categories/330')
       .then(skillsGroups => this.skillsGroups = skillsGroups)
   }
 }

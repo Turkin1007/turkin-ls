@@ -40,7 +40,7 @@ export default {
   mounted() {
     this.calcSlidesPerPage(this);
 
-    xhr('get', 'reviews/174')
+    xhr('get', 'reviews/330')
       .then(reviews => {
         return reviews.map(review => {
           return (review.photo = 'https://webdev-api.loftschool.com/' + review.photo) && review;

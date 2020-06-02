@@ -29,7 +29,7 @@ export default {
     }
   },
   mounted() {
-    xhr('get', 'works/174')
+    xhr('get', 'works/330')
       .then(works => works.map((work, index) => this.workFunc(work, index)))
       .then(works => this.works = works)
       .then(() => {
