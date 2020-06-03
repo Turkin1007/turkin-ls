@@ -23,7 +23,7 @@ section.login
           :errorText="validation.firstError('user.password')")
       .login__row
         .login__btn
-          button(type="submit").btn.btn--feedback Отправить
+          button(type="submit" id="submit").btn.btn--feedback Отправить
 </template>
 
 <!--SCRIPT-->
