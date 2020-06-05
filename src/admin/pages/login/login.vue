@@ -2,17 +2,18 @@
 section.login
   .login__content
     h2.login__title Авторизация
-    form(@submit.prevent="submit").login__form
-      .login__row
+    form(@submit.prevent="submit" id="loginForm").login__form
+      .login__row.field
         vc-input(
           :strong="true"
           name="name"
           title="Логин"
           icon="user"
+          type="text"
           v-model="user.name"
           :errorText="validation.firstError('user.name')"
           :autofocus="true")
-      .login__row
+      .login__row.field
         vc-input(
           :strong="true"
           name="password"
@@ -23,7 +24,11 @@ section.login
           :errorText="validation.firstError('user.password')")
       .login__row
         .login__btn
-          button(type="submit").btn.btn--feedback Отправить
+          button(
+          type="submit"
+          id="submit"
+          v-bind:disabled="!isValid"
+          ).btn.btn--feedback Отправить
 </template>
 
 <!--SCRIPT-->
@@ -71,6 +76,11 @@ export default {
         }
       }
     }
+  },
+  computed: {
+    isValid () {
+      return this.user.name.length >= 5 && this.user.password.length >= 5;
+    },
   }
 };
 </script>

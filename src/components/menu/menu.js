@@ -20,7 +20,7 @@ export default {
         {href: '#skills', text: 'Навыки'},
         {href: '#works', text: 'Работы'},
         {href: '#reviews', text: 'Отзывы'},
-        {href: '#feedback', text: 'Связаться'}
+        {href: '#feedback', text: 'Связаться'},
       ]
     };
   },
